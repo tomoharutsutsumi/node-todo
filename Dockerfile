@@ -7,7 +7,10 @@ WORKDIR /app
 COPY ["package.json", "package-lock.json*", "./"]
 
 RUN npm install --production
-
+ 
 COPY . .
 
+RUN npm install ronin-server ronin-mocks --production
+
 CMD ["node", "server.js"]
+
