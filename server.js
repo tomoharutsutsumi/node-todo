@@ -1,24 +1,11 @@
-const ronin 		= require( 'ronin-server' )
-const database  = require( 'ronin-database' )
-const mocks 		= require( 'ronin-mocks' )
+const express = require('express')
+const app = express()
+const port = 8000
 
-async function main() {
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
-    try {
-    await database.connect( process.env.CONNECTIONSTRING )
-    
-    const server = ronin.server({
-            port: process.env.SERVER_PORT
-        })
-
-        server.use( '/', mocks.server( server.Router()) )
-
-    const result = await server.start()
-        console.info( result )
-    
-    } catch( error ) {
-        console.error( error )
-    }
-}
-
-main()
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
