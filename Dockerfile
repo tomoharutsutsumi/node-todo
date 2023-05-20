@@ -10,8 +10,10 @@ RUN npm install --production
  
 COPY . .
 
-RUN npm install typescript --save-dev
-RUN npm install express
+RUN npm install ejs --save
+RUN npm install express --save
+RUN npm install --save-dev typescript
+RUN npm install --save-dev @types/express @types/node 
 
 CMD ["node", "server.js"]
 
