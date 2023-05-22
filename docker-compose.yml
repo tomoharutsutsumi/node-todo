@@ -9,11 +9,12 @@ services:
    - 9229:9229
   environment:
    - SERVER_PORT=8000
-   - CONNECTIONSTRING=mongodb://mongo:27017/notes
+   #- CONNECTIONSTRING=mongodb://mongo:27017/node-todos
   volumes:
    - ./:/app
    - /app/node_modules
-
+  # networks:
+  #   - node-todo_default
  mongo:
   image: mongo:4.2.8
   ports:
@@ -21,6 +22,16 @@ services:
   volumes:
    - mongodb:/data/db
    - mongodb_config:/data/configdb
+  environment:
+    MONGO_INITDB_ROOT_USERNAME: root
+    MONGO_INITDB_ROOT_PASSWORD: example
+  # networks:
+  #     - node-todo_default
+
 volumes:
  mongodb:
  mongodb_config:
+
+# networks:
+#   node-todo_default:
+#     external: true

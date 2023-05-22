@@ -10,7 +10,7 @@ RUN npm install --production
  
 COPY . .
 
-RUN npm install express ejs
+RUN npm install express ejs mongoose
 RUN npm install -g ts-node
 RUN npm install -D typescript @types/node @types/express 
 

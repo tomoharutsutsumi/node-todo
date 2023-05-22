@@ -12,7 +12,8 @@ app.set( "/src/views", path.join( __dirname, "/src/views") );
 app.set( "view engine", "ejs" );
 
 app.get('/', (_, res) => {
-  res.send(`${add(2,3)}`)
+  add()
+  res.send("OK!")
   //res.render( "index.ejs" );
 })
 
