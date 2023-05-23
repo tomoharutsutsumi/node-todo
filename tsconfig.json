@@ -9,6 +9,6 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true
     },
-    "include": ["src"],
+    "include": ["models/**/*", "Todo.js"],
     "exclude": ["node_modules"]
 }

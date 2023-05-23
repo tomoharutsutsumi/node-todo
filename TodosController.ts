@@ -1,17 +1,11 @@
-import mongoose from "mongoose";
+import Todo from "./Todo.js";
 
-export const add = (): void => {
-    mongoose.connect('mongodb://root:example@mongo:27017', {
-        //useNewUrlParser: true,
-        //useUnifiedTopology: true
-    })
-    .then(() => console.log('MongoDB Connected!'))
-    .catch(err => console.log(err));
+export const addTodo = (): void => {
+    const todo = new Todo({
+        title: 'Awesome Post!3',
+        detail: 'Test!3'
+      });
+    todo.save();
 }
 
-// mongoose.connect('mongodb://root:example@mongo:27017/test', {
-//     //useNewUrlParser: true,
-//     //useUnifiedTopology: true
-// })
-// .then(() => console.log('MongoDB Connected...'))
-// .catch(err => console.log(err));
+

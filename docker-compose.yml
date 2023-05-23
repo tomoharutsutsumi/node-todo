@@ -13,8 +13,8 @@ services:
   volumes:
    - ./:/app
    - /app/node_modules
-  # networks:
-  #   - node-todo_default
+  networks:
+    - node-todo_default
  mongo:
   image: mongo:4.2.8
   ports:
@@ -25,13 +25,13 @@ services:
   environment:
     MONGO_INITDB_ROOT_USERNAME: root
     MONGO_INITDB_ROOT_PASSWORD: example
-  # networks:
-  #     - node-todo_default
+  networks:
+    - node-todo_default
 
 volumes:
  mongodb:
  mongodb_config:
 
-# networks:
-#   node-todo_default:
-#     external: true
+networks:
+  node-todo_default:
+    external: true
