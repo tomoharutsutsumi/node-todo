@@ -8,7 +8,14 @@
         <h1>NodeTodo</h1>
         <form method="POST" action="/todos">
             <input type="hidden" name="myData" value="Some Value">
+            <input type="text" name="title" />
+            <input type="text"  name="detail" />
             <button type="submit">This is a link</button>
-        </form>  
+        </form>
+        <ul>
+            <% todos.forEach(function(todo) { %>
+                <li><%= todo.title %> is <%= todo.detail %></li>
+            <% }); %>
+        </ul>
     </body>
 </html>

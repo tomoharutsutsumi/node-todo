@@ -2,6 +2,7 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import { addTodo } from "./TodosController.ts";
+import Todo from "./Todo.js"
 import mongoose from "mongoose";
 
 const app = express()
@@ -16,7 +17,15 @@ app.get('/', (_, res) => {
   mongoose.connect('mongodb://root:example@mongo:27017/notes?authSource=admin&authMechanism=SCRAM-SHA-1')
     .then(() => console.log('MongoDB Connected!'))
     .catch(err => console.log(err));
-  res.render('index.ejs')
+  Todo.find()
+  .then(fetchedTodos => {
+    res.render('index.ejs', { todos: fetchedTodos })
+  })
+  .catch(err => {
+    console.error(err);
+  });
+  //console.log(todos)
+  
 })
 
 app.post('/todos', (_, res) => {
